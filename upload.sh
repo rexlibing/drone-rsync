@@ -47,7 +47,7 @@ else
 fi
 
 # Building rsync command
-expr="rsync -az $ARGS"
+expr="rsync -rtvz $ARGS"
 
 if [[ -n "$PLUGIN_RECURSIVE" && "$PLUGIN_RECURSIVE" == "true" ]]; then
     expr="$expr -r"
