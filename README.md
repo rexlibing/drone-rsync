@@ -14,13 +14,13 @@ Build the docker image by running:
 ```bash
 docker build --rm=true -t drillster/drone-rsync .
 ```
-
+#默认运行参数不是-a 而是-rtvz,前者是保留源文件权限，后者是保留目标文件权限（发布时比较实用）
 ## Usage
 Execute from the working directory (assuming you have an SSH server running on 127.0.0.1:22):
 
 ```bash
 docker run --rm \
-  -e PLUGIN_KEY=$(cat some-private-key) \
+  -e PLUGIN_KEY=$(private-key) \
   -e PLUGIN_HOSTS="127.0.0.1, 127.0.0.2, 127.0.0.3" \
   -e PLUGIN_PORTS="22, 23, 24" \
   -e PLUGIN_TARGET="./" \
